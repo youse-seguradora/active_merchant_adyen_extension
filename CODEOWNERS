@@ -1,0 +1,9 @@
+# Guardians
+* @alipio @danielgatis @raulsouzalima @josimar-silva
+
+# Devops
+.dockerignore @youse-seguradora/devops
+.ruby-version @youse-seguradora/devops
+docker-compose.yml @youse-seguradora/devops
+Dockerfile @youse-seguradora/devops
+Jenkinsfile @youse-seguradora/devops
