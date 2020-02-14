@@ -2,6 +2,8 @@
 
 This library is meant to be an extension to `AdyenGateway` implemented by `ActiveMerchant`.
 
+Right now, it only implements the `secure_store` method, which is responsible for sending the encrypted credit card data to Adyen, so they can tokenize this credit card.
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -20,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+For instructions about how to use it, please read the **Usage** section [ActiveMerchant](https://github.com/activemerchant/active_merchant#usage) and more specific about the Adyen [here](https://github.com/activemerchant/active_merchant/blob/master/lib/active_merchant/billing/gateways/adyen.rb).
 
 ### Notes:
 
