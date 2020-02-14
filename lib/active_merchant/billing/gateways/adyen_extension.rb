@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 ActiveMerchant::Billing::AdyenGateway.class_eval do
-  def post_data(_action, parameters = {})
-    @request_payload = parameters
-    JSON.generate(parameters)
-  end
-end
-
-ActiveMerchant::Billing::AdyenGateway.class_eval do
   attr_reader :request_payload
 
   PAYMENT_API_VERSION = 'v40'
@@ -17,6 +10,11 @@ ActiveMerchant::Billing::AdyenGateway.class_eval do
 
   class_attribute :live_checkout_url
   self.live_checkout_url = 'https://checkout-live.adyen.com/'
+
+  def post_data(_action, parameters = {})
+    @request_payload = parameters
+    JSON.generate(parameters)
+  end
 
   def secure_store(credit_card, options = {})
     post = init_post(options)
