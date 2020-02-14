@@ -1,6 +1,3 @@
-require "active_merchant_adyen_extension/version"
+# frozen_string_literal: true
 
-module ActiveMerchantAdyenExtension
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require 'active_merchant/adyen_extension'
