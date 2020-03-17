@@ -3,13 +3,11 @@
 ActiveMerchant::Billing::AdyenGateway.class_eval do
   attr_reader :request_payload
 
-  PAYMENT_API_VERSION = 'v40'
-
   class_attribute :test_checkout_url
   self.test_checkout_url = 'https://checkout-test.adyen.com/'
 
   class_attribute :live_checkout_url
-  self.live_checkout_url = 'https://checkout-live.adyen.com/'
+  self.live_checkout_url = 'https://6bd11f36b72c180c-YouseSeg-checkout-live.adyenpayments.com/'
 
   def secure_store(credit_card, options = {})
     post = init_post(options)
