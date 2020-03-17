@@ -54,7 +54,7 @@ ActiveMerchant::Billing::AdyenGateway.class_eval do
   def url(action)
     if action == 'secureStore'
       url = test? ? test_checkout_url : live_checkout_url
-      "#{url}/#{PAYMENT_API_VERSION}/payments"
+      "#{url}/#{ActiveMerchant::Billing::AdyenGateway::PAYMENT_API_VERSION}/payments"
     else
       if test?
         "#{test_url}#{endpoint(action)}"
