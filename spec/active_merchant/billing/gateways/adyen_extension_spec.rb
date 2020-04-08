@@ -11,7 +11,7 @@ RSpec.describe ActiveMerchant::Billing::AdyenGateway do
   end
 
   it 'set live_checkout_url' do
-    expect(described_class.live_checkout_url).to eq('https://checkout-live.adyen.com/')
+    expect(described_class.live_checkout_url).to eq('https://-checkout-live.adyenpayments.com/checkout/')
   end
 
   it 'set test_checkout_url' do
