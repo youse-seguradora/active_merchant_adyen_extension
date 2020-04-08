@@ -20,6 +20,8 @@ Or install it yourself as:
 
     $ gem install active_merchant_adyen_extension
 
+Set the environment variable `ADYEN_LIVE_URL_PREFIX` with your **adyen live endpoint url prefix**.
+
 ## Usage
 
 For instructions about how to use it, please read the **Usage** section [ActiveMerchant](https://github.com/activemerchant/active_merchant#usage) and more specific about the Adyen [here](https://github.com/activemerchant/active_merchant/blob/master/lib/active_merchant/billing/gateways/adyen.rb).

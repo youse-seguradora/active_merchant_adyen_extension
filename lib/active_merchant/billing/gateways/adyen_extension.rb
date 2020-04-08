@@ -7,7 +7,7 @@ ActiveMerchant::Billing::AdyenGateway.class_eval do
   self.test_checkout_url = 'https://checkout-test.adyen.com/'
 
   class_attribute :live_checkout_url
-  self.live_checkout_url = 'https://6bd11f36b72c180c-YouseSeg-checkout-live.adyenpayments.com/'
+  self.live_checkout_url = "https://#{ENV['ADYEN_LIVE_URL_PREFIX']}-checkout-live.adyenpayments.com/checkout/"
 
   def secure_store(credit_card, options = {})
     post = init_post(options)
@@ -54,7 +54,7 @@ ActiveMerchant::Billing::AdyenGateway.class_eval do
   def url(action)
     if action == 'secureStore'
       url = test? ? test_checkout_url : live_checkout_url
-      "#{url}/#{ActiveMerchant::Billing::AdyenGateway::PAYMENT_API_VERSION}/payments"
+      "#{url}#{ActiveMerchant::Billing::AdyenGateway::PAYMENT_API_VERSION}/payments"
     else
       if test?
         "#{test_url}#{endpoint(action)}"
