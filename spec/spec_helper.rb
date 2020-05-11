@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "active_merchant_adyen_extension"
+Bundler.require(:test)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

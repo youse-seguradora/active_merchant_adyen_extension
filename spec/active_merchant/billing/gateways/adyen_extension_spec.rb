@@ -21,4 +21,23 @@ RSpec.describe ActiveMerchant::Billing::AdyenGateway do
   it 'implements secure_store' do
     expect(subject.respond_to?(:secure_store)).to be_truthy
   end
+
+  describe '#add_extra_data' do
+    it 'adds the shopper name when it is given' do
+      post = {}
+
+      subject.send(:add_extra_data, post, '8835205392522157', shopper_name: 'John Doe')
+
+      expect(post[:shopperName][:firstName]).to eq('John')
+      expect(post[:shopperName][:lastName]).to eq('Doe')
+    end
+
+    it 'adds the shopper email when it is given' do
+      post = {}
+
+      subject.send(:add_extra_data, post, '8835205392522157', shopper_email: 'JDoe@email.com')
+
+      expect(post[:shopperEmail]).to eq('JDoe@email.com')
+    end
+  end
 end
