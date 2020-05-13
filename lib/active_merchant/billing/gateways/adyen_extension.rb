@@ -90,4 +90,18 @@ ActiveMerchant::Billing::AdyenGateway.class_eval do
 
     response['response'] || response['message'] || response['result']
   end
+
+  old_add_extra_data = instance_method(:add_extra_data)
+
+  define_method(:add_extra_data) do |post, payment, options|
+    old_add_extra_data.bind(self).call(post, payment, options)
+
+    first_name, last_name = split_names(options[:shopper_name] || '')
+    return if first_name.blank? && last_name.blank?
+
+    post[:shopperName] = {}
+    post[:shopperName][:firstName] = first_name
+    post[:shopperName][:gender] = 'UNKNOWN'
+    post[:shopperName][:lastName] = last_name
+  end
 end
